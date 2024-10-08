@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name=" Jason Manimbi & Uruguna Nouairi" content="Crowdfunding site">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Donation</title>
+    
+    <style>
+      body {
+      background-color: rgb(77, 74, 74);
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      }
+     </style>
+  </head>
+
+  <script>
+    // Function to load fundraiser details using API
+    async function loadFundraiserDetails(fundraiserId) {
+        try {
+            const response = await fetch(`http://localhost:2016/api/fundraiser/${fundraiserId}`);
+            const data = await response.json();
+
+            if (response.ok) {
+                // Display fundraiser details on the page
+                document.getElementById('fundraiserName').textContent = data.fundraiser.CAPTION;
+                document.getElementById('organizer').textContent = data.fundraiser.ORGANIZER;
+                document.getElementById('targetFunding').textContent = data.fundraiser.TARGET_FUNDING;
+                document.getElementById('currentFunding').textContent = data.fundraiser.CURRENT_FUNDING;
+            } else {
+                alert('Fundraiser not found');
+            }
+        } catch (err) {
+            console.error('Error fetching fundraiser details:', err);
+        }
+    }
+
+    // Function to submit donation
+    async function submitDonation(event) {
+        event.preventDefault();  // Prevent form from submitting the default way
+
+        const donorName = document.getElementById('donorName').value;
+        const amount = parseFloat(document.getElementById('amount').value);
+        const fundraiserId = document.getElementById('fundraiserId').value;
+
+        // Validate minimum donation amount
+        if (isNaN(amount) || amount < 5) {
+            alert('Minimum donation is 5 AUD');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:2016/api/donation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    donorName: donorName,
+                    amount: amount,
+                    fundraiserId: fundraiserId
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(`Thank you for your donation to ${data.fundraiserName}!`);
+                window.location.href = `/fundraiser-details.html?fundraiserId=${fundraiserId}`;
+            } else {
+                alert('There was an issue submitting the donation');
+            }
+        } catch (err) {
+            console.error('Error submitting donation:', err);
+        }
+    }
+
+    // On page load, get the fundraiserId from URL and load details
+    window.onload = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fundraiserId = urlParams.get('fundraiserId');
+        document.getElementById('fundraiserId').value = fundraiserId;
+        loadFundraiserDetails(fundraiserId);
+    }
+</script>
+  
+  <body class="home">
+    <header>
+      
+      <div id="Logo">
+        <img src="Images/Dark-Grey-Vintage-Retro-Outdoor-Adventure-Badge-Logo.png" alt="My Logo" height="150" width="150" style="border-radius: 50%;">
+      </div>
+
+      <div id="nav">
+
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="search.html">SEARCH</a></li>
+          <li><a href="fundraiser-details.html">FUNDRAISERS</a></li>
+          <li><a href="donation.html">DONATIONS</a></li>
+      </ul>
+
+      </div>
+      
+    </header>
+
+    <h1>Donate to <span id="fundraiserName"></span></h1>
+
+    <p>Organizer: <span id="organizer"></span></p>
+    <p>Target Funding: AUD <span id="targetFunding"></span></p>
+    <p>Current Funding: AUD <span id="currentFunding"></span></p>
+
+    <!-- Donation Form -->
+    <form onsubmit="submitDonation(event)">
+        <input type="hidden" id="fundraiserId"> <!-- Hidden field to hold the fundraiser ID -->
+
+        <label for="donorName">Your Name:</label>
+        <input type="text" id="donorName" required>
+
+        <label for="amount">Donation Amount (AUD):</label>
+        <input type="number" id="amount" required>
+
+        <button type="submit">Submit My Donation</button>
+    </form>
+
+<footer>    
+    <div class="footer container">
+    <div class="socialicons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <ul>
+          <li><a href="#" class="fa fa-facebook"></a></li>
+          <li><a href="#" class="fa fa-twitter"></a></li>
+          <li><a href="#" class="fa fa-instagram"></a></li>
+          <li><a href="#" class="fa fa-whatsapp"></a></li>
+        </ul>
+     </div>
+   </div>
+    <div class="footerbottom">
+      <p>Copyright &copy; 2024; Designed by <span class="designer">FUNDWAVE</span> All Rights Reserved</p>
+    </div>
+  </footer> 
+</body>
+</html>

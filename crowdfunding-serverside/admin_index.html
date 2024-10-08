@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundraiser Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Fundraiser Admin Panel</h1>
+
+    <!-- List of Fundraisers -->
+    <section id="fundraisers-list">
+        <h2>Fundraisers</h2>
+        <ul id="fundraiser-list-container"></ul>
+    </section>
+
+    <!-- Create Fundraiser Form -->
+    <section id="create-fundraiser">
+        <h2>Create New Fundraiser</h2>
+        <form id="create-fundraiser-form">
+            <label for="organizer">Organizer:</label>
+            <input type="text" id="organizer" required>
+            <br>
+
+            <label for="caption">Caption:</label>
+            <input type="text" id="caption" required>
+            <br>
+
+            <label for="target_funding">Target Funding:</label>
+            <input type="number" id="target_funding" required>
+            <br>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" required>
+            <br>
+
+            <label for="category_id">Category ID:</label>
+            <input type="number" id="category_id" required>
+            <br>
+
+            <button type="submit">Save</button>
+        </form>
+    </section>
+
+    <!-- Update Fundraiser Form -->
+    <section id="update-fundraiser">
+        <h2>Update Fundraiser</h2>
+        <form id="update-fundraiser-form">
+            <label for="update-fundraiser-id">Fundraiser ID:</label>
+            <input type="number" id="update-fundraiser-id" required>
+            <br>
+
+            <label for="update-organizer">Organizer:</label>
+            <input type="text" id="update-organizer" required>
+            <br>
+
+            <label for="update-caption">Caption:</label>
+            <input type="text" id="update-caption" required>
+            <br>
+
+            <label for="update-target_funding">Target Funding:</label>
+            <input type="number" id="update-target_funding" required>
+            <br>
+
+            <label for="update-city">City:</label>
+            <input type="text" id="update-city" required>
+            <br>
+
+            <button type="submit">Save</button>
+        </form>
+
+        <h3>Donations for Fundraiser</h3>
+        <ul id="donations-list"></ul>
+    </section>
+
+    <script src="adminAPIserver.js"></script>
+</body>
+</html>

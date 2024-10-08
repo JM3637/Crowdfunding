@@ -1,0 +1,662 @@
+/*
+  Name: Jason Manimbi
+  Student id: 24547099
+  Date: 13/03/24
+*/
+
+/* Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: rgb(77, 74, 74);
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+#Logo-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  margin-left: 50px;
+  margin-left: 50px;
+}
+
+#nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+#nav li {
+  margin-right: 20px;
+}
+
+#nav li a {
+  color:#dfdf1a;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+#nav a:hover {
+  background-color: rgb(108, 180, 239);
+  color: white;
+}
+
+/* Hero Section Styles */
+.herosection {
+  height: 600px;
+  background-image: url(../Images/1593592174701.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: rgb(245, 204, 21);
+}
+
+.herosection-text {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.herosection-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.herosection-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.herosection-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  background-color: #dfdf1a;
+  color: black;
+  border-radius: 0.5rem;
+}
+
+.btn:hover {
+  background-color: #ffd700;
+  color: white;
+}
+
+/* About Section Styles */
+.about {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.about_image {
+  width: 20%;
+}
+
+.about_image img {
+  display: block;
+  margin-top: 30px;
+}
+
+.about_text {
+  width: 60%;
+  padding-left: 50px;
+  margin-top: 14px;
+  font-size: 23px;
+  color:#dfdf1a;
+}
+
+.about_text h2{
+  padding-left: 215px;
+}
+
+.about_text p{
+  padding-left: 215px;
+}
+
+/*Fundraisers list*/
+.Fundraisers {
+  width: 90vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 150px;
+}
+
+.Fundraisers-text {
+  max-width: 800px;
+  margin-left: 10px;
+  text-align: center;
+  color:#dfdf1a;
+}
+
+.Fundraisers-text h1 {
+  font-size: 40px;
+  margin-bottom: 0.5rem;
+  
+}
+
+.Fundraisers-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+#fundraiser{
+  margin-top: 750px;
+  padding-right: 250px;
+  padding-bottom: 250px;
+}
+
+/*About us page*/
+#aboutpage_heading{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px 20px auto;
+  
+}
+
+#aboutpage_heading h1{
+  font-size: 50px;
+  color: #dfdf1a;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+#aboutpage_heading h1::after{
+  content:"";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  display: block;
+  margin: 0 auto;
+  background-color: #4caf50;
+}
+
+#aboutpage_heading p{
+  font-size: 18px;
+  color: #dfdf1a;
+  margin-bottom: 35px;
+}
+
+#aboutpage_container{
+  width: 90%;
+  margin:0 auto;
+  padding: 10px 20px;
+}
+
+.aboutpage{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.aboutpage_image{
+  flex: 1;
+  margin-left: 40px;
+  overflow: hidden;
+}
+
+.aboutpage_image img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.aboutpage_image:hover img{
+  transform: scale(1.2);
+}
+
+.aboutpage_content{
+  flex: 1;
+  padding-left: 20px;
+}
+
+.aboutpage_content h2{
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #dfdf1a;
+}
+
+.aboutpage_content p{
+  font-size: 18px;
+  line-height: 1.5;
+  color: #dfdf1a;
+}
+
+/* Search styles*/
+form {
+  background-color: #c2ca53;
+  padding: 80px;
+  border-radius: 10px;
+}
+
+label{
+  display: block;
+  margin-bottom: 10px;
+}
+
+input [type="text"], select{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button{
+  padding: 20px 40px;
+  background-color: #777;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+button.hover{
+  background-color: chocolate;
+}
+
+#results{
+  margin-top: 20px;
+}
+
+.error{
+  color: red;
+  font-weight: bold;
+}
+/*Fundraiser Details*/
+.fundraiser-details {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.donate-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.donate-button:hover {
+  background-color: #2980b9;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+footer li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  align-items: center;
+}
+
+div class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+}
+
+.socialicons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-right: 65px;
+}
+
+.socialicons li {
+  display: inline;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 40%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: white;
+  color: black;
+}
+
+.fa-twitter {
+  background: white;
+  color: black;
+}
+
+.fa-instagram {
+  background: white;
+  color: black;
+}
+
+.fa-whatsapp {
+  background: white;
+  color: black;
+}
+
+.footernav {
+  margin: 30px 0;
+}
+
+.footernav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footernav li {
+  padding: 20px 40px;
+  display: inline;
+}
+
+.footernav a {
+  color:#dfdf1a;
+  text-decoration: none;
+}
+
+.footernav a:hover {
+  background-color: rgb(108, 180, 239);
+}
+
+.footerbottom {
+  padding: 20px;
+  text-align: center;
+  color:#dfdf1a;
+}
+
+.footerbottom p {
+  color:#dfdf1a;
+}
+
+.designer {
+  color:#dfdf1a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.home .socialicons ul li a {
+transition: transform 0.3s ease;
+}
+  
+.home .socialicons ul li a:hover {
+transform: scale(1.2);
+}
+
+  
+.webdev .socialicons ul li a {
+  transition: transform 0.3s ease;
+}
+    
+.webdev .socialicons ul li a:hover {
+  transform: scale(1.2);
+}
+
+
+.termsandconditions .socialicons ul li a {
+  transition: transform 0.3s ease;
+}
+  
+.termsandconditions .socialicons ul li a:hover {
+  transform: scale(1.2);
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+  /* Body Styles */
+  body {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Header Styles */
+  header {
+    flex-direction: column;
+  }
+
+  #nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav li {
+    padding: 10px 0;
+  }
+
+  /* Hero Section Styles */
+  .herosection {
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .herosection-text {
+    margin-left: 0;
+  }
+
+  /* News Section Styles */
+  .news-section {
+    width: 100%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+
+  /* About Section Styles */
+  .about {
+    flex-direction: column;
+  }
+
+  .about_image {
+    width: 50%;
+  }
+
+  .about_text {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  /* Container 2 Styles */
+  .container_2 {
+    flex-direction: column;
+  }
+
+  .images_2 {
+    width: 50%;
+  }
+
+  #paragraph_2 {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  /* Container 3 Styles */
+  .container_3 {
+    flex-direction: column;
+  }
+
+  .images_3 {
+    width: 50%;
+  }
+
+  #paragraph_3 {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  /* Container 4 Styles */
+  .container_4 {
+    flex-direction: column;
+  }
+
+  .images_4 {
+    width: 50%;
+  }
+
+  #paragraphs_4 {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  /* Advertisements Styles */
+  .advertisments {
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  /* Footer Styles */
+  .socialicons {
+    flex-direction: column;
+  }
+
+  .footernav ul {
+    flex-direction: column;
+  }
+
+  .footernav li {
+    padding: 10px 0;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 600px) {
+  /* Body Styles */
+  body {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* Header Styles */
+  header {
+    justify-content: space-between;
+  }
+
+  #nav ul {
+    justify-content: flex-end;
+  }
+
+  /* Hero Section Styles */
+  .herosection {
+    height: 50vh;
+  }
+
+
+  /* About Section Styles */
+  .about {
+    justify-content: center;
+  }
+
+  .about_image {
+    width: 20%;
+  }
+
+  .about_text {
+    width: 80%;
+    padding-left: 50px;
+  }
+
+  /* Container 2 Styles */
+  .container_2 {
+    justify-content: center;
+  }
+
+  .images_2 {
+    width: 30%;
+  }
+
+  #paragraph_2 {
+    width: 70%;
+    padding-left: 200px;
+  }
+
+  /* Footer Styles */
+  .socialicons {
+    justify-content: center;
+  }
+
+  .footernav ul {
+    justify-content: center;
+  }
+}

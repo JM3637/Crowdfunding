@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name=" Jason Manimbi & Uruguna Nouairi" content="Crowdfunding site">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title> Search </title>
+
+  </head>
+
+  <body class="home">
+    <header>
+      
+      <div id="Logo">
+        <img src="Images/Dark-Grey-Vintage-Retro-Outdoor-Adventure-Badge-Logo.png" alt="My Logo" height="150" width="150" style="border-radius: 50%;">
+      </div>
+
+      <div id="nav">
+
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="search.html">SEARCH</a></li>
+            <li><a href="fundraiser-details.html">FUNDRAISERS</a></li>
+            <li><a href="donation.html">DONATIONS</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+        </ul>
+
+      </div>
+      
+    </header>
+
+    <h1>Search by City/Province</h1>
+
+    <main>
+      <select id="city-select">
+        <option value="">Select a CITY/PROVINCE</option>
+    </select>
+
+    <div id="results"></div>
+    <main>
+    <script>
+        const cities = ["PORT MORESBY", "LAE", "EAST NEW BRITAIN", "NEW IRELAND", "MANUS ISLAND", "WEST NEW BRITAIN", "WEWAK", "DARU", "MILNE BAY", "VANIMO"]; 
+        const apiEndpoint = 'http:/2016/api/fundraisers'; 
+    
+        const citySelect = document.getElementById('city-select');
+        cities.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    
+        citySelect.addEventListener('change', async function() {
+            const selectedCity = this.value;
+            if (selectedCity) {
+                const response = await fetch(`${apiEndpoint}?city=${selectedCity}`);
+                const fundraiser = await response.json();
+                displayResults(fundraisers);
+            } else {
+                document.getElementById('results').innerHTML = '';
+            }
+        });
+    
+        function displayResults(fundraiser) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            fundraiser.forEach(fundraiser => {
+                const link = document.createElement('a');
+                link.href = `donate.html?id=${fundraiser.id}`;
+                link.textContent = fundraiser.caption;
+                resultsDiv.appendChild(link);
+                resultsDiv.appendChild(document.createElement('br'));
+            });
+        }
+    </script>
+</main>
+
+    <footer>    
+      <div class="footer container">
+      <div class="socialicons">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <ul>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-whatsapp"></a></li>
+          </ul>
+       </div>
+     </div>
+
+      <div class="footerbottom">
+        <p>Copyright &copy; 2024; Designed by <span class="designer">FUNDWAVE</span> All Rights Reserved</p>
+        <p>Contact: info@fundwave.org | Phone: (675) 123-7654</p>
+      </div>
+    </footer> 
+  </body>
+</html>
